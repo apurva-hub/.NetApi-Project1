@@ -1,4 +1,6 @@
-﻿using apiProject1_lib;
+﻿
+
+using ClassLibrary1;
 
 namespace ApiProject1.Interface
 {
@@ -7,5 +9,6 @@ namespace ApiProject1.Interface
         public IEnumerable<Project> GetProject();
         public IEnumerable<Project> GetProjectById(int id);
         public int CreateNewProject(string ProjectTitle, string ProjectDesc, int currentUserId);
+        public bool DeleteProjectById(int projectId);
     }
 }

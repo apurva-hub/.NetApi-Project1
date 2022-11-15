@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿/*using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ApiProject1.Controllers;
 using System;
 using System.Collections.Generic;
@@ -44,4 +44,4 @@ namespace ApiProject1.Controllers.Tests
             Assert.IsTrue(createNewUserResult);
         }
     }
-}
+}*/

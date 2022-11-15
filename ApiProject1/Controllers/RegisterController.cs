@@ -1,5 +1,5 @@
 ﻿using ApiProject1.Interface;
-using apiProject1_lib;
+using ClassLibrary1;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Web;
@@ -16,18 +16,18 @@ namespace ApiProject1.Controllers
              _registerService = RegisterService;
         }
             task_managerContext data = new task_managerContext();
-        Class1 ob = new Class1();
+       
         [HttpGet]
-        public IEnumerable<Register> Get()
+        public IEnumerable<Register> Get(string email, string password)
         {
-            var getUserDetails = _registerService.GetUserDetails();
-            return getUserDetails;
+            var userExists = _registerService.IsUserExists(email, password);
+            return userExists;
         }
         
         [HttpPost]
-        public bool Post([FromBody] Register r)
+        public bool Post(string firstName, string email, string password)
         {
-            bool isUserCreated = _registerService.CreateNewUser(r);
+            bool isUserCreated = _registerService.CreateNewUser(firstName, email, password);
             return isUserCreated;
         }
     }

@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿/*using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ApiProject1.Controllers;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ApiProject1.Interface;
 using Moq;
-using apiProject1_lib;
+
 
 namespace ApiProject1.Controllers.Tests
 {
@@ -59,4 +59,4 @@ namespace ApiProject1.Controllers.Tests
             Assert.AreEqual(1, createNewProjectResult);
         }
     }
-}
+}*/

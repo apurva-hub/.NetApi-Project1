@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\HP\\source\\repos\\ApiProject1\\apiProject1_lib\\apiProject1_lib.csproj": {
-                "projectPath": "C:\\Users\\HP\\source\\repos\\ApiProject1\\apiProject1_lib\\apiProject1_lib.csproj"
+              "C:\\Users\\HP\\source\\repos\\ApiProject1\\ClassLibrary1\\ClassLibrary1.csproj": {
+                "projectPath": "C:\\Users\\HP\\source\\repos\\ApiProject1\\ClassLibrary1\\ClassLibrary1.csproj"
               }
             }
           }
@@ -50,7 +50,11 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -79,14 +83,14 @@
         }
       }
     },
-    "C:\\Users\\HP\\source\\repos\\ApiProject1\\apiProject1_lib\\apiProject1_lib.csproj": {
+    "C:\\Users\\HP\\source\\repos\\ApiProject1\\ClassLibrary1\\ClassLibrary1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\ApiProject1\\apiProject1_lib\\apiProject1_lib.csproj",
-        "projectName": "apiProject1_lib",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\ApiProject1\\apiProject1_lib\\apiProject1_lib.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\ApiProject1\\ClassLibrary1\\ClassLibrary1.csproj",
+        "projectName": "ClassLibrary1",
+        "projectPath": "C:\\Users\\HP\\source\\repos\\ApiProject1\\ClassLibrary1\\ClassLibrary1.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\ApiProject1\\apiProject1_lib\\obj\\",
+        "outputPath": "C:\\Users\\HP\\source\\repos\\ApiProject1\\ClassLibrary1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -121,7 +125,7 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[7.0.0, )"
             }
           },
           "imports": [

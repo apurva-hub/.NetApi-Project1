@@ -1,5 +1,5 @@
 ﻿using ApiProject1.Interface;
-using apiProject1_lib;
+using ClassLibrary1;
 
 namespace ApiProject1.Services
 {

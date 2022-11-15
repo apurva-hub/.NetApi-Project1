@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using apiProject1_lib;
+
 using Microsoft.EntityFrameworkCore;
 using Moq;
 
@@ -90,24 +90,34 @@ namespace ApiProject1.Services.Tests
             Assert.AreEqual(1, result);
 
         }
+       
         [TestMethod()]
-        public void DeleteProjectTest()
+        public void DeleteEmployeeByIdTest()
         {
-            
-            var mockSet = new Mock<DbSet<Project>>();           
+            var data = new List<Project>()
+            {
+                new Project {  ProjectTitle = "project1", ProjectDescription = "p1", UserId = 1, ProjectId = 20 },
+                new Project {  ProjectTitle = "project2", ProjectDescription = "p2", UserId = 1, ProjectId = 21 }
+
+            }.AsQueryable();
+
+            var mockSet = new Mock<DbSet<Project>>();
+            mockSet.As<IQueryable<Project>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<Project>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Project>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<Project>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
             var mockContext = new Mock<task_managerContext>();
             mockContext.Setup(m => m.Projects).Returns(mockSet.Object);
-
+            //mockSet.Setup(c => c.Where(It.IsAny < Func<Employee, bool>>())).Returns(data);
             mockSet.Setup(c => c.Remove(It.IsAny<Project>()));
             mockContext.Setup(c => c.SaveChanges()).Returns(1);
-            ProjectService ts = new ProjectService(mockContext.Object);
+            ProjectService es = new ProjectService(mockContext.Object);
 
-            int result = ts.DeleteProjectById(1);
+            bool result = es.DeleteProjectById(20);
             mockSet.Verify(c => c.Remove(It.IsAny<Project>()), Times.Once());
 
             mockContext.Verify(m => m.SaveChanges(), Times.Once());
-            Assert.AreEqual(1, result);
-
+            Assert.IsTrue(result);
         }
     }
 }

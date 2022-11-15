@@ -1,5 +1,5 @@
 ﻿using ApiProject1.Interface;
-using apiProject1_lib;
+using ClassLibrary1;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -9,9 +9,11 @@ namespace ApiProject1.Controllers
     public class ProjectController : ControllerBase
     {
         private readonly IProject _projectService;
+        
         public ProjectController(IProject ProjectService)
         {
             _projectService = ProjectService;
+            
         }
         task_managerContext data = new task_managerContext();
         [HttpGet]
@@ -33,7 +35,13 @@ namespace ApiProject1.Controllers
         {
             var isProjectCreated = _projectService.CreateNewProject(ProjectTitle, ProjectDesc, currentUserId);            
             return isProjectCreated;
-           
+
+        }
+        [HttpDelete]
+        public bool Delete(int projectId)
+        {
+            var deleteTaskById = _projectService.DeleteProjectById(projectId);
+            return deleteTaskById;
         }
     }
 }

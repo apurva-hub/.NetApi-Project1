@@ -1,5 +1,5 @@
 ﻿using ApiProject1.Interface;
-using apiProject1_lib;
+using ClassLibrary1;
 
 namespace ApiProject1.Services
 {
@@ -17,7 +17,7 @@ namespace ApiProject1.Services
         }
         public IEnumerable<Project> GetProjectById(int id)
         {
-            var projectById = _context.Projects.Where(i => i.ProjectId == id);
+            var projectById = _context.Projects.Where(i => i.UserId == id);
             return projectById;
 
         }
@@ -32,14 +32,14 @@ namespace ApiProject1.Services
             int isProjectCreated = _context.SaveChanges();
             return isProjectCreated;
         }
-        public int DeleteProjectById(int projectId)
+        public bool DeleteProjectById(int projectId)
         {
-            IEnumerable<Project> deleteProjectById = (IEnumerable<Project>)_context.Projects.Where(p => p.ProjectId == projectId).FirstOrDefault();
-            int isProjectDeleted = 0;
+            var deleteProjectById = _context.Projects.Where(p => p.ProjectId == projectId).FirstOrDefault();
+            bool isProjectDeleted = false;
             if (deleteProjectById != null)
             {
                 _context.Projects.Remove((Project)deleteProjectById);
-                isProjectDeleted = _context.SaveChanges();
+                isProjectDeleted = _context.SaveChanges() > 0;
             }
             return isProjectDeleted;
         }
